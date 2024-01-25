@@ -1,0 +1,22 @@
+<section class="flex-container">
+    <h2>Login</h2>
+    <form [formGroup]="form" (submit)="onSubmit(form)">
+        <mat-form-field>       
+            <mat-label>Email</mat-label>     
+            <input matInput type="email" placeholder="Email" formControlName="email">
+            <mat-hint>Enter your email.</mat-hint>
+
+            <mat-error *ngIf="isRequiredFieldInvalid('email')">The e-mail is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>    
+            <mat-label>Password</mat-label>        
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            <mat-hint>Enter your password.</mat-hint>
+
+            <mat-error *ngIf="isRequiredFieldInvalid('password')">The password is required.</mat-error>
+        </mat-form-field>
+        <button mat-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</section>
+
+
